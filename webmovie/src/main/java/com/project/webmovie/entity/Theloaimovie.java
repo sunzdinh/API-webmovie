@@ -1,10 +1,24 @@
 package com.project.webmovie.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 
-@Entity
-public class Theloaimovie {
+import java.io.Serializable;
+import  lombok.*;
 
-    private  int id;
+@Embeddable
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class Theloaimovie implements Serializable {
+        @Column(name = "movie_id")
+        private int movieId;
 
-}
+        @Column(name = "theloai_id")
+        private int theloaiId;
+    }
+
+
+
+
