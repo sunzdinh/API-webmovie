@@ -1,0 +1,199 @@
+[1mdiff --git a/webmovie/.gitattributes b/.gitattributes[m
+[1msimilarity index 100%[m
+[1mrename from webmovie/.gitattributes[m
+[1mrename to .gitattributes[m
+[1mdiff --git a/webmovie/.gitignore b/.gitignore[m
+[1msimilarity index 100%[m
+[1mrename from webmovie/.gitignore[m
+[1mrename to .gitignore[m
+[1mdiff --git a/.idea/.gitignore b/.idea/.gitignore[m
+[1mdeleted file mode 100644[m
+[1mindex a0ccf77..0000000[m
+[1m--- a/.idea/.gitignore[m
+[1m+++ /dev/null[m
+[36m@@ -1,5 +0,0 @@[m
+[31m-# Default ignored files[m
+[31m-/shelf/[m
+[31m-/workspace.xml[m
+[31m-# Environment-dependent path to Maven home directory[m
+[31m-/mavenHomeManager.xml[m
+[1mdiff --git a/.idea/compiler.xml b/.idea/compiler.xml[m
+[1mdeleted file mode 100644[m
+[1mindex 7c9dfdf..0000000[m
+[1m--- a/.idea/compiler.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="CompilerConfiguration">[m
+[31m-    <annotationProcessing>[m
+[31m-      <profile default="true" name="Default" enabled="true" />[m
+[31m-      <profile name="Annotation profile for webmovie" enabled="true">[m
+[31m-        <sourceOutputDir name="target/generated-sources/annotations" />[m
+[31m-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />[m
+[31m-        <outputRelativeToContentRoot value="true" />[m
+[31m-        <processorPath useClasspath="false">[m
+[31m-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />[m
+[31m-        </processorPath>[m
+[31m-        <module name="webmovie" />[m
+[31m-      </profile>[m
+[31m-    </annotationProcessing>[m
+[31m-  </component>[m
+[31m-  <component name="JavacSettings">[m
+[31m-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">[m
+[31m-      <module name="webmovie" options="-parameters" />[m
+[31m-    </option>[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/encodings.xml b/.idea/encodings.xml[m
+[1mdeleted file mode 100644[m
+[1mindex f30ba8f..0000000[m
+[1m--- a/.idea/encodings.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="Encoding">[m
+[31m-    <file url="file://$PROJECT_DIR$/webmovie/src/main/java" charset="UTF-8" />[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml[m
+[1mdeleted file mode 100644[m
+[1mindex 712ab9d..0000000[m
+[1m--- a/.idea/jarRepositories.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,20 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="RemoteRepositoriesConfiguration">[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="central" />[m
+[31m-      <option name="name" value="Central Repository" />[m
+[31m-      <option name="url" value="https://repo.maven.apache.org/maven2" />[m
+[31m-    </remote-repository>[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="central" />[m
+[31m-      <option name="name" value="Maven Central repository" />[m
+[31m-      <option name="url" value="https://repo1.maven.org/maven2" />[m
+[31m-    </remote-repository>[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="jboss.community" />[m
+[31m-      <option name="name" value="JBoss Community repository" />[m
+[31m-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />[m
+[31m-    </remote-repository>[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/misc.xml b/.idea/misc.xml[m
+[1mdeleted file mode 100644[m
+[1mindex 6d26612..0000000[m
+[1m--- a/.idea/misc.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,14 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="ExternalStorageConfigurationManager" enabled="true" />[m
+[31m-  <component name="MavenProjectsManager">[m
+[31m-    <option name="originalFiles">[m
+[31m-      <list>[m
+[31m-        <option value="$PROJECT_DIR$/webmovie/pom.xml" />[m
+[31m-      </list>[m
+[31m-    </option>[m
+[31m-  </component>[m
+[31m-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">[m
+[31m-    <output url="file://$PROJECT_DIR$/out" />[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/modules.xml b/.idea/modules.xml[m
+[1mdeleted file mode 100644[m
+[1mindex 11f494b..0000000[m
+[1m--- a/.idea/modules.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="ProjectModuleManager">[m
+[31m-    <modules>[m
+[31m-      <module fileurl="file://$PROJECT_DIR$/.idea/webmovie.iml" filepath="$PROJECT_DIR$/.idea/webmovie.iml" />[m
+[31m-    </modules>[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/vcs.xml b/.idea/vcs.xml[m
+[1mdeleted file mode 100644[m
+[1mindex 288b36b..0000000[m
+[1m--- a/.idea/vcs.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="VcsDirectoryMappings">[m
+[31m-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />[m
+[31m-    <mapping directory="$PROJECT_DIR$" vcs="Git" />[m
+[31m-  </component>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/webmovie.iml b/.idea/webmovie.iml[m
+[1mdeleted file mode 100644[m
+[1mindex b69fb81..0000000[m
+[1m--- a/.idea/webmovie.iml[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<module type="JAVA_MODULE" version="4">[m
+[31m-  <component name="AdditionalModuleElements">[m
+[31m-    <content url="file://$MODULE_DIR$" />[m
+[31m-  </component>[m
+[31m-</module>[m
+\ No newline at end of file[m
+[1mdiff --git a/webmovie/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties[m
+[1msimilarity index 100%[m
+[1mrename from webmovie/.mvn/wrapper/maven-wrapper.properties[m
+[1mrename to .mvn/wrapper/maven-wrapper.properties[m
+[1mdiff --git a/README.md b/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex 5785637..0000000[m
+[1m--- a/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-# API-webmovie[m
+[1mdiff --git a/webmovie/mvnw b/mvnw[m
+[1msimilarity index 100%[m
+[1mrename from webmovie/mvnw[m
+[1mrename to mvnw[m
+[1mdiff --git a/webmovie/mvnw.cmd b/mvnw.cmd[m
+[1msimilarity index 100%[m
+[1mrename from webmovie/mvnw.cmd[m
+[1mrename to mvnw.cmd[m
+[1mdiff --git a/webmovie/pom.xml b/pom.xml[m
+[1msimilarity index 99%[m
+[1mrename from webmovie/pom.xml[m
+[1mrename to pom.xml[m
+[1mindex 928a1de..8254540 100644[m
+[1m--- a/webmovie/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -9,7 +9,6 @@[m
+ 		<relativePath/> <!-- lookup parent from repository -->[m
+ 	</parent>[m
+ 	<groupId>com.project</groupId>[m
+[31m-[m
+ 	<artifactId>webmovie</artifactId>[m
+ 	<version>0.0.1-SNAPSHOT</version>[m
+ 	<name>webmovie</name>[m
+[1mdiff --git a/src/main/java/com/project/webmovie/Controller/UserController.java b/src/main/java/com/project/webmovie/Controller/UserController.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..eea959b[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/project/webmovie/Controller/UserController.java[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32mpackage com.project.webmovie.Controller;[m
+[32m+[m
+[32m+[m[32mimport com.project.webmovie.Service.UserService;[m
+[32m+[m[32mimport com.project.webmovie.dto.request.UserCreationRequest;[m
+[32m+[m[32mimport com.project.webmovie.entity.User;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.PostMapping;[m
+[32m+[m[32mimport org.springf
