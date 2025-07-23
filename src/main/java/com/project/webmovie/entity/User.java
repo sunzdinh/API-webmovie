@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "USERS")
+@Table(name = "Users")
 public class User {
     public enum Accountrole {
         user, admin
