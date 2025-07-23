@@ -11,12 +11,12 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "MOVIE")
+@Table(name = "Movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private long id;
+    private Long id;
     @Column(name = "TIEUDE")
     private String tieude;
     @Column(name = "MOTA")
@@ -31,13 +31,7 @@ public class Movie {
     private String trailer_url;
     @Column(name = "CREATED_AT", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;
-    @ManyToMany
-    @JoinTable(
-            name="THELOAI_MOVIE",
-            joinColumns = @JoinColumn(name="MOVIE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "THELOAI_ID")
-    )
-    private Set<Genre> genre;
-
+    @OneToMany(mappedBy = "movie")
+    private Set<Theloaimovie> theloaimovie;
 
 }

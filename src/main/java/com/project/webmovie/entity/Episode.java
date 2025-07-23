@@ -14,13 +14,12 @@ public class Episode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private long id;
+    private Long id;
     @Column(name = "SOTAPPHIM")
     private int sotapphim;
     @Column(name = "VIDEO_URL")
     private String video_url;
-    @ManyToOne
-    @JoinColumn(name = "MOVIE_ID")
-    private Movie movie;
+    @Column(name = "movie_id")
+    private Long movieId;
 
 }

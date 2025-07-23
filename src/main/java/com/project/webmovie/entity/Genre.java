@@ -13,11 +13,11 @@ import java.util.Set;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=" ID ")
-    private long id ;
-    @Column(name=" NAME ")
+    @Column(name="ID")
+    private Long id ;
+    @Column(name="NAME")
     private String name ;
-    @ManyToMany(mappedBy = "genre")
-    private Set<Movie> movies;
+    @OneToMany(mappedBy = "genre")
+    private Set<Theloaimovie> theloaimovie;
 
 }
