@@ -13,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="Theloaimovies")
-
 public class Theloaimovie implements Serializable {
+
     @Id
     @Column(name="movie_id")
     private Long movieId;
@@ -25,19 +25,19 @@ public class Theloaimovie implements Serializable {
 
     @ManyToOne
     @MapsId("movieId")
-    @JoinColumn(name="movie_id",insertable = false,updatable = false)
+    @JoinColumn(name="movie_id", insertable = false, updatable = false)
     private Movie movie;
+
     @ManyToOne
     @MapsId("theloaiId")
-    @JoinColumn(name="theloai_id",insertable = false,updatable = false)
+    @JoinColumn(name="theloai_id", insertable = false, updatable = false)
     private Genre genre;
 
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class TheloaimoviePK implements Serializable{
+    public static class TheloaimoviePK implements Serializable {
         private Long movieId;
         private Long theloaiId;
     }
 }
-
