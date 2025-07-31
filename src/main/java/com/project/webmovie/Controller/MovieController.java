@@ -26,11 +26,11 @@ public class MovieController {
     Movie getMovie(@PathVariable ("movieId") long movieId ){
         return movieService.getMovie(movieId);
     }
-    @PutMapping("/{movies}")
+    @PutMapping("/{movieId}")
     Movie upateMovie(@PathVariable long movieId,@RequestBody MovieUpdateRequest request){
         return movieService.updateMovie(movieId,request);
     }
-    @DeleteMapping("/{movies}")
+    @DeleteMapping("/{movieId}")
     public String deleteMovie(@PathVariable long movieId){
         movieService.deleteMovie(movieId);
         return "Movie has been deleted";
