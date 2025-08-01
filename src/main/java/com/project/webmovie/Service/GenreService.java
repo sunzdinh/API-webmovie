@@ -33,7 +33,10 @@ public class GenreService {
     }
 
     public  Genre getGenre(long id){
-        return  genreRepository.findById(id).orElseThrow(()-> new RuntimeException("No Found"));
+        return  genreRepository.findById(id).orElseThrow(()-> new RuntimeException("Not Found"));
+    }
+    public Genre getGenreByName(String name){
+        return genreRepository.findByNameIgnoreCase(name).orElseThrow(()->new RuntimeException("Không tìm thấy tên thể loại"));
     }
     public  void deleteGenre( long genreId){
         genreRepository.deleteById(genreId);

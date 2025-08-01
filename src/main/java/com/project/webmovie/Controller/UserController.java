@@ -3,6 +3,7 @@ import com.project.webmovie.Service.UserService;
 import com.project.webmovie.dto.request.UserCreationRequest;
 import com.project.webmovie.dto.request.UserUpdateRequest;
 import com.project.webmovie.entity.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User creatUser(@RequestBody UserCreationRequest request){
+    public User creatUser(@RequestBody @Valid UserCreationRequest request){
 
         return  userService.createRequest(request);
     }

@@ -16,15 +16,15 @@ public class HistoryService {
 
     public History createRequest(HistoryCreationRequest request){
         History history = new History();
-        history.setUser(request.getUser());
-        history.setMovie(request.getMovie());
+        history.setUser_Id(request.getUser_Id());
+        history.setMovie_Id(request.getMovie_Id());
         history.setViewhistory(request.getViewhistory());
          return  historyRepository.save(history);
     }
     public  History updateRequest(long historyId, HistoryCreationRequest request){
         History history =getHistory(historyId);
-        history.setUser(request.getUser());
-        history.setMovie(request.getMovie());
+        history.setUser_Id(request.getUser_Id());
+        history.setMovie_Id(request.getMovie_Id());
         history.setViewhistory(request.getViewhistory());
         return  historyRepository.save(history);
     }

@@ -1,6 +1,7 @@
 package com.project.webmovie.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -14,7 +15,6 @@ public class User {
     public enum Accountrole {
         user, admin
     }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -26,9 +26,9 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
     @Enumerated(EnumType.STRING)
-    @Column(name = "QUYENNGUOIDUNG", columnDefinition = "ENUM('user','admin') DEFAULT 'user'")
+    @Column(name = "QUYENNGUOIDUNG",length = 50, columnDefinition = "ENUM('user','admin') DEFAULT 'user'")
     private Accountrole quyennguoidung = Accountrole.user;
     @Column(name = "CREATED_AT")
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime createdAt = LocalDateTime.now();
-
 }

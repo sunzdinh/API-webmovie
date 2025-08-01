@@ -17,6 +17,8 @@ public class MovieService {
     private MovieRepository movieRepository;
     public Movie CreateRequest(MovieCreationRequest request){
         Movie movie =new Movie();
+
+
         movie.setTieude(request.getTieude());
         movie.setMota(request.getMota());
         movie.setNamphathanh(request.getNamphathanh());
@@ -34,6 +36,11 @@ public class MovieService {
                 .orElseThrow(
                         () ->new RuntimeException("Movie not found"));
     }
+    public Movie getMovieByTieude(String tieude){
+        return movieRepository.findByTieudeIgnoreCase(tieude).orElseThrow(
+                () -> new RuntimeException("Không tìm thấy tên tiêu đề phim"));
+    }
+
     public Movie updateMovie(long movieId, MovieUpdateRequest request){
         Movie movie=getMovie(movieId);
         movie.setTieude(request.getTieude());
