@@ -19,7 +19,8 @@ public class Episode {
     private int sotapphim;
     @Column(name = "VIDEO_URL")
     private String video_url;
-    @Column(name = "movie_id")
-    private Long movieId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "movie_id", nullable = false)
+    private Movie movie;
 
 }

@@ -6,14 +6,14 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class UserCreationRequest {
-    String username;
-    @Pattern(regexp = "^[\\w.+\\-]+@gmail.com",message = "Email phải có định dạng @gmail.com")
+   String username;
+   /* @Pattern(regexp = "^[\\w.+\\-]+@gmail.com",message = "Email phải có định dạng @gmail.com")
     //Giải thích cái cụm "": ^: áp dụng từ đâù chuỗi k bỏ qua kí tự nào trong []
     // []:cho phép dùng bất kỳ kí tự nào bên trong
     // \w: viết tắt của word character
     // \\-: thêm \\ vid dấu - có ý nghĩa là từ .. đến .. VD: [a-z] trong []
     // + : phải có ít nhất 1 ký tự hợp lệ trong [] thì mới @gmail.com được
-
+    */
 
     String email;
     @Size(min=8,message = "Mật khẩu phải có ít nhất 8 kí tự")

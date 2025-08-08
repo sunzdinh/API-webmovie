@@ -17,14 +17,12 @@ public class GenreService {
     public Genre createRequest  (GenreCreationRequest request){
         Genre genre = new Genre();
         genre.setName(request.getName());
-        genre.setTheloaimovie(request.getTheloaimovie());
         return genreRepository.save(genre);
     }
 
     public  Genre updateGenre ( long genreId, GenreCreationRequest request){
         Genre genre = getGenre(genreId);
         genre.setName(request.getName());
-        genre.setTheloaimovie(request.getTheloaimovie());
         return  genreRepository.save(genre);
     }
 

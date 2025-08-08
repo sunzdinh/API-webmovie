@@ -3,6 +3,7 @@ package com.project.webmovie.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +18,6 @@ public class Genre {
     private Long id ;
     @Column(name="NAME")
     private String name ;
-    @OneToMany(mappedBy = "genre")
-    private Set<Theloaimovie> theloaimovie;
-
+    @ManyToMany(mappedBy = "genreList")
+    private List<Movie> movies;
 }

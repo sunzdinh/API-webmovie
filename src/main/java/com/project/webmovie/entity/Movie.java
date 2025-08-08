@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 
@@ -31,7 +32,16 @@ public class Movie {
     private String trailer_url;
     @Column(name = "CREATED_AT", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;
-    @OneToMany(mappedBy = "movie")
-    private Set<Theloaimovie> theloaimovie;
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name ="user_id")
+    private User user;
+    @ManyToMany
+    @JoinTable(
+            name = "movie_genre",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private List<Genre> genreList;
+    
 
 }
