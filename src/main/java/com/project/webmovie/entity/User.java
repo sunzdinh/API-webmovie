@@ -31,4 +31,7 @@ public class User {
     @Column(name = "CREATED_AT")
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    private String resetOtp;
+    private  LocalDateTime resetOtpExpiry;
 }

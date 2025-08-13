@@ -16,7 +16,7 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
     private String secret = "G1@#9klJg^_9zX!2LpR4wQs$VtYu7i0Op";
-    private int jwtExpiration = 1800000; // 30 phút
+    private int jwtExpiration = 1800000;
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();

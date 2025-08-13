@@ -6,11 +6,13 @@ import com.project.webmovie.dto.request.UserUpdateRequest;
 import com.project.webmovie.entity.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -34,14 +36,15 @@ public class UserController {
 
 
     @GetMapping("/{userId}")
-    @PreAuthorize("hasRole('ADMIN') or authentication.name == #userId.toString()")
+    @PreAuthorize("hasRole('ADMIN') or @userService.isCurrentUser(#userId)")
     public User getUser(@PathVariable("userId") long userId){
+
         return userService.getUser(userId);
     }
 
 
     @PutMapping("/{userId}")
-    @PreAuthorize("hasRole('ADMIN') or authentication.name == #userId.toString()")
+    @PreAuthorize("hasRole('ADMIN') or@userService.isCurrentUser(#userId)")
     public User updateUser(@PathVariable long userId, @RequestBody UserUpdateRequest request){
         return userService.updateUser(userId, request);
     }
@@ -60,4 +63,32 @@ public class UserController {
         String username = authentication.getName();
         return userService.getUserByUsername(username);
     }
+
+    @PutMapping("/{userId}/reset-password")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> resetPassword(
+            @PathVariable long userId,
+            @RequestBody Map<String, String> requestBody) {
+
+        String newPassword = requestBody.get("newPassword");
+        userService.resetPassword(userId, newPassword);
+        return ResponseEntity.ok("Password updated successfully");
+    }
+
+    @PostMapping("/password-reset/request")
+    public ResponseEntity<String> requestPasswordReset(@RequestBody Map<String, String> body) {
+        userService.generatePasswordResetOtp(body.get("email"));
+        return ResponseEntity.ok("OTP đã được gửi tới email");
+    }
+
+    @PostMapping("/password-reset/confirm")
+    public ResponseEntity<String> confirmPasswordReset(@RequestBody Map<String, String> body) {
+        userService.resetPasswordWithOtp(
+                body.get("email"),
+                body.get("otp"),
+                body.get("newPassword")
+        );
+        return ResponseEntity.ok("Đổi mật khẩu thành công");
+    }
+
 }

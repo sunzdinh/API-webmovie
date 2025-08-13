@@ -12,7 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class UserService {
@@ -22,16 +24,24 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     public User createRequest(UserCreationRequest request) {
-        User user = new User();
-
         if(userRepository.existsByUsername((request.getUsername())))
             throw new RuntimeException("User existed ");
         if(userRepository.existsByEmail(request.getEmail()))
             throw new RuntimeException("Email existed");
 
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        boolean isAuthenticated = auth != null && auth.isAuthenticated() && !"anonymousUser".equals(auth.getPrincipal());
+        boolean isAdmin = isAuthenticated && auth.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+
+        if ("admin".equalsIgnoreCase(request.getQuyennguoidung().name()) && !isAdmin) {
+            throw new RuntimeException("Only admin can create admin account");
+        }
+
+        User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setQuyennguoidung(request.getQuyennguoidung());
         user.setCreatedAt(request.getCreatedAt());
         return userRepository.save(user);
@@ -72,6 +82,13 @@ public class UserService {
         if (request.getQuyennguoidung() != null && isAdmin) {
             user.setQuyennguoidung(request.getQuyennguoidung());
         }
+        if (request.getUsername() != null) {
+            if (userRepository.existsByUsername(request.getUsername()) &&
+                    !user.getUsername().equals(request.getUsername())) {
+                throw new RuntimeException("Username already exists");
+            }
+            user.setUsername(request.getUsername());
+        }
 
         return userRepository.save(user);
     }
@@ -102,5 +119,43 @@ public class UserService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void resetPassword(long userId, String newPassword) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
+    public void generatePasswordResetOtp(String email) {
+        User user = (User) userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Email không tồn tại"));
+
+        String otp = String.valueOf(new Random().nextInt(900000) + 100000);
+        user.setResetOtp(otp);
+        user.setResetOtpExpiry(LocalDateTime.now().plusMinutes(5));
+
+        userRepository.save(user);
+
+        // TODO: Gửi email
+        System.out.println("OTP cho " + email + ": " + otp);
+    }
+
+    public void resetPasswordWithOtp(String email, String otp, String newPassword) {
+        User user = (User) userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Email không tồn tại"));
+
+        if (user.getResetOtp() == null || !user.getResetOtp().equals(otp))
+            throw new RuntimeException("OTP không hợp lệ");
+
+        if (user.getResetOtpExpiry().isBefore(LocalDateTime.now()))
+            throw new RuntimeException("OTP đã hết hạn");
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        user.setResetOtp(null);
+        user.setResetOtpExpiry(null);
+
+        userRepository.save(user);
     }
 }

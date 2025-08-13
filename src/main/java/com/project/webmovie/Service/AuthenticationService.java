@@ -28,7 +28,6 @@ public class AuthenticationService {
     CustomUserDetailsService userDetailsService;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        // 1. Authenticate với Spring Security
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -40,17 +39,14 @@ public class AuthenticationService {
             throw new ApiException("Invalid username or password", 401);
         }
 
-        // 2. Load user từ database
         var user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new ApiException("User not found username"+ request.getUsername(), 404));
 
-        // 3. Load UserDetails cho JWT
+
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
-        // 4. Generate JWT token
         String token = jwtUtil.generateToken(userDetails);
 
-        // 5. Return response với token
         return AuthenticationResponse.builder()
                 .token(token)
                 .username(user.getUsername())

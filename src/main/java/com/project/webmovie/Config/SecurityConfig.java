@@ -43,7 +43,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll() // Registration
+                        .requestMatchers(HttpMethod.POST, "/users","/users/").permitAll() // Registration
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
