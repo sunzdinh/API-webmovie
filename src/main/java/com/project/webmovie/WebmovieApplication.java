@@ -10,4 +10,5 @@ public class WebmovieApplication {
 		SpringApplication.run(WebmovieApplication.class, args);
 	}
 
+
 }
