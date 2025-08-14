@@ -1,4 +1,4 @@
-package com.project.webmovie.util;
+/*package com.project.webmovie.util;
 
 import com.project.webmovie.Repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -38,3 +38,4 @@ public class PasswordEncodeRunner implements CommandLineRunner {
         System.out.println("=== Password encoding process completed ===");
     }
 }
+*/

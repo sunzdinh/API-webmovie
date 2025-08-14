@@ -1,4 +1,4 @@
-package com.project.webmovie.Service;
+/*package com.project.webmovie.Service;
 
 import com.project.webmovie.Repository.UserRepository;
 import com.project.webmovie.entity.User;
@@ -22,3 +22,4 @@ public class AuthorizationService {
             return "admin".equals(currentRole);
         }
 }
+*/

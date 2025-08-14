@@ -33,7 +33,7 @@ public class HistoryController {
     }
     @DeleteMapping("/{historyId}")
     String deleteHistory(@PathVariable long historyId){
-            historyService.deleteHistory(historyId);
-            return "This history has been removed";
+        historyService.deleteHistory(historyId);
+        return "This history has been removed";
     }
 }
